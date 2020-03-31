@@ -1,0 +1,265 @@
+[
+    {
+        "value": 1,
+        "type": "heart",
+        "image" : "h1.png"
+    },
+    {
+        "value": 2,
+        "type": "heart",
+        "image" : "h2.png"
+    },
+    {
+        "value": 3,
+        "type": "heart",
+        "image" : "h3.png"
+    },
+    {
+        "value": 4,
+        "type": "heart",
+        "image" : "h4.png"
+    },
+    {
+        "value": 5,
+        "type": "heart",
+        "image" : "h5.png"
+    },
+    {
+        "value": 6,
+        "type": "heart",
+        "image" : "h6.png"
+    },
+    {
+        "value": 7,
+        "type": "heart",
+        "image" : "h7.png"
+    },
+    {
+        "value": 8,
+        "type": "heart",
+        "image" : "h8.png"
+    },
+    {
+        "value": 9,
+        "type": "heart",
+        "image" : "h9.png"
+    },
+    {
+        "value": 10,
+        "type": "heart",
+        "image" : "h10.png"
+    },
+    {
+        "value": 10,
+        "type": "heart",
+        "image" : "h11.png"
+    },
+    {
+        "value": 10,
+        "type": "heart",
+        "image" : "h12.png"
+    },
+    {
+        "value": 10,
+        "type": "heart",
+        "image" : "h13.png"
+    },
+ 
+    {
+        "value": 1,
+        "type": "diamond",
+        "image" : "d1.png"
+    },
+    {
+        "value": 2,
+        "type": "diamond",
+        "image" : "d2.png"
+    },
+    {
+        "value": 3,
+        "type": "diamond",
+        "image" : "d3.png"
+    },
+    {
+        "value": 4,
+        "type": "diamond",
+        "image" : "d4.png"
+    },
+    {
+        "value": 5,
+        "type": "diamond",
+        "image" : "d5.png"
+    },
+    {
+        "value": 6,
+        "type": "diamond",
+        "image" : "d6.png"
+    },
+    {
+        "value": 7,
+        "type": "diamond",
+        "image" : "d7.png"
+    },
+    {
+        "value": 8,
+        "type": "diamond",
+        "image" : "d8.png"
+    },
+    {
+        "value": 9,
+        "type": "diamond",
+        "image" : "d9.png"
+    },
+    {
+        "value": 10,
+        "type": "diamond",
+        "image" : "d10.png"
+    },
+    {
+        "value": 10,
+        "type": "diamond",
+        "image" : "d11.png"
+    },
+    {
+        "value": 10,
+        "type": "diamond",
+        "image" : "d12.png"
+    },
+    {
+        "value": 10,
+        "type": "diamond",
+        "image" : "d13.png"
+    },
+ 
+    {
+        "value": 1,
+        "type": "trebol",
+        "image" : "t1.png"
+    },
+    {
+        "value": 2,
+        "type": "trebol",
+        "image" : "t2.png"
+    },
+    {
+        "value": 3,
+        "type": "trebol",
+        "image" : "t3.png"
+    },
+    {
+        "value": 4,
+        "type": "trebol",
+        "image" : "t4.png"
+    },
+    {
+        "value": 5,
+        "type": "trebol",
+        "image" : "t5.png"
+    },
+    {
+        "value": 6,
+        "type": "trebol",
+        "image" : "t6.png"
+    },
+    {
+        "value": 7,
+        "type": "trebol",
+        "image" : "t7.png"
+    },
+    {
+        "value": 8,
+        "type": "trebol",
+        "image" : "t8.png"
+    },
+    {
+        "value": 9,
+        "type": "trebol",
+        "image" : "t9.png"
+    },
+    {
+        "value": 10,
+        "type": "trebol",
+        "image" : "t10.png"
+    },
+    {
+        "value": 10,
+        "type": "trebol",
+        "image" : "t11.png"
+    },
+    {
+        "value": 10,
+        "type": "trebol",
+        "image" : "t12.png"
+    },
+    {
+        "value": 10,
+        "type": "trebol",
+        "image" : "t13.png"
+    },
+    
+    {
+        "value": 1,
+        "type": "ace",
+        "image" : "a1.png"
+    },
+    {
+        "value": 2,
+        "type": "ace",
+        "image" : "a2.png"
+    },
+    {
+        "value": 3,
+        "type": "ace",
+        "image" : "a3.png"
+    },
+    {
+        "value": 4,
+        "type": "ace",
+        "image" : "a4.png"
+    },
+    {
+        "value": 5,
+        "type": "ace",
+        "image" : "a5.png"
+    },
+    {
+        "value": 6,
+        "type": "ace",
+        "image" : "a6.png"
+    },
+    {
+        "value": 7,
+        "type": "ace",
+        "image" : "a7.png"
+    },
+    {
+        "value": 8,
+        "type": "ace",
+        "image" : "a8.png"
+    },
+    {
+        "value": 9,
+        "type": "ace",
+        "image" : "a9.png"
+    },
+    {
+        "value": 10,
+        "type": "ace",
+        "image" : "a10.png"
+    },
+    {
+        "value": 10,
+        "type": "ace",
+        "image" : "a11.png"
+    },
+    {
+        "value": 10,
+        "type": "ace",
+        "image" : "a12.png"
+    },
+    {
+        "value": 10,
+        "type": "ace",
+        "image" : "a13.png"
+    }
+]
