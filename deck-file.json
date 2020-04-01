@@ -64,7 +64,7 @@
         "type": "heart",
         "image" : "h13.png"
     },
- 
+    
     {
         "value": 1,
         "type": "diamond",
@@ -130,7 +130,7 @@
         "type": "diamond",
         "image" : "d13.png"
     },
- 
+    
     {
         "value": 1,
         "type": "trebol",

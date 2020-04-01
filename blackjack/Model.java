@@ -1,3 +1,4 @@
+package blackjack;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import org.json.simple.parser.ParseException;
 public class Model {
 	
 	private Deck deck;
+	final private int[] stakes = {1, 5, 25, 50, 100, 500, 1000};
 	
 	public Model() {
 		this.deck = new Deck();
@@ -40,6 +42,10 @@ public class Model {
 	
 	public Deck getDeck() {
 		return this.deck;
+	}
+	
+	public int[] getStakes() {
+		return this.stakes;
 	}
 
 }

@@ -1,16 +1,19 @@
+package blackjack;
 import java.util.ArrayList;
 
-public class Player {
+public abstract class Player {
 	
 	private String name;
 	private int playerNum;
 	private ArrayList<Hand> hands;
+	private int stakes;
 	private boolean won;
 	
 	public Player(String name, int playerNum) {
 		this.name = name;
 		this.playerNum = playerNum;
-		this.hands = new ArrayList<Hand>(); 
+		this.hands = new ArrayList<Hand>();
+		this.stakes = 100;
 	}
 	
 	public String getName() {
@@ -39,6 +42,26 @@ public class Player {
 	
 	public void addHand(Hand hands) {
 		this.hands.add(hands);
+	}
+
+	public int getStakes() {
+		return this.stakes;
+	}
+	
+	public void setStakes(int stakes) {
+		this.stakes = stakes;
+	}
+	
+	public void withdrawStakes(int stakes) {
+		this.stakes -= stakes;
+	}
+	
+	public void addStakes(int stakes) {
+		this.stakes += stakes;
+	}
+	
+	public boolean isDealer() {
+		return (this instanceof Dealer); 
 	}
 	
 }

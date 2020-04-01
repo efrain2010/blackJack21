@@ -1,3 +1,4 @@
+package blackjack;
 
 public class Card {
 
@@ -12,7 +13,7 @@ public class Card {
 	}
 
 	public int getValue() {
-		return value;
+		return this.value;
 	}
 
 	public void setValue(int value) {
@@ -20,15 +21,15 @@ public class Card {
 	}
 
 	public String getType() {
-		return type;
+		return this.type;
 	}
 
 	public void setType(String type) {
 		this.type = type;
 	}
-
+	
 	public String getImage() {
-		return image;
+		return this.image;
 	}
 
 	public void setImage(String image) {
