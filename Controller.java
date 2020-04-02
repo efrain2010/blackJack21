@@ -1,25 +1,25 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-import javax.swing.JButton;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 public class Controller implements ActionListener {
 	
 	private Board boardObject;
 	private Model modelObject;
+	private ObjectOutputStream outputStream;
 	
 	private BoardView boardViewObject;
 	private Player player;
 	
-	public Controller(Model modelObject) {
+	public Controller(Model modelObject, ObjectOutputStream outputStream) {
 		this.modelObject = modelObject;
+		this.outputStream = outputStream;
+		
 		this.boardObject = new Board(this.modelObject.getDeck());
-	}
-	
-	public Controller(Player player) {
-		this.player = player;
+		addPlayer(BoardView.initWindow());
+
 		this.boardViewObject = new BoardView(this);
 		this.boardViewObject.setBoard();
 		this.boardViewObject.setVisible(true);
@@ -27,11 +27,6 @@ public class Controller implements ActionListener {
 	
 	public Player getPlayer() {
 		return this.player;
-	}
-	
-	public void addNewPlayer(Player newPlayer) {
-//		this.boardViewObject = new BoardView(this);
-//		this.boardViewObject.setVisible(true);		
 	}
 	
 	public Model getModel() {
@@ -98,10 +93,16 @@ public class Controller implements ActionListener {
 	}
 	
 	private void hitStakeBtn(int betQuantity) {
-		if(betQuantity <= this.player.getStakes()) {
-			this.player.withdrawStakes(betQuantity);
-			this.player.addBetToPlay(betQuantity);
-			this.boardViewObject.addPlayerBet(betQuantity, this.player.getActualBet());
+		try {
+			if(betQuantity <= this.player.getStakes()) {
+				this.player.withdrawStakes(betQuantity);
+				this.player.addBetToPlay(betQuantity);
+				this.boardViewObject.addPlayerBet(betQuantity, this.player.getActualBet());
+				
+				this.outputStream.writeObject(this.boardObject);
+			}
+		} catch(IOException ex) {
+			ex.printStackTrace();
 		}
 	}
 	
@@ -121,6 +122,16 @@ public class Controller implements ActionListener {
 			this.player.withdrawStakes(playerActualbet);
 			this.player.addBetToPlay(playerActualbet);
 			this.boardViewObject.updatePlayBet(playerActualbet, this.player.getActualBet());
+		}
+	}
+
+	public void addPlayer(String playerName) {
+		try {
+			this.player = new Human(playerName, 1);
+			this.boardObject.addPlayer(player);
+			this.outputStream.writeObject(this.boardObject);
+		} catch(IOException ex) {
+			ex.printStackTrace();
 		}
 	}
 	

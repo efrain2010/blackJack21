@@ -6,7 +6,8 @@ public class InitGame {
 
 	public InitGame() {
 		this.modelObject = new Model();
-		this.controllerObject = new Controller(this.modelObject);
+		Dealer dealer = new Dealer("Dealer", 0);
+		// this.controllerObject = new Controller(this.modelObject, dealer);
 	}
 	
 	public Model getModelObject() {

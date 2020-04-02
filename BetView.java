@@ -16,7 +16,6 @@ import javax.swing.JPanel;
 public class BetView extends JPanel {
 	
 	private Controller controllerObject;
-	private Player player;
 	
 	private JLabel totalBetLbl, playerStakesLbl;
 	private JButton setDealBtn, stake1, stake5, stake25, stake50, stake100, stake500, stake1000, removeBetBtn;

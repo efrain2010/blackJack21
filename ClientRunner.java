@@ -9,12 +9,10 @@ public class ClientRunner implements Runnable {
     private Server parent = null;
     private ObjectInputStream inputStream = null;
     private ObjectOutputStream outputStream = null;
-    private InitGame blackjack;
     
-    public ClientRunner(Socket s, Server parent, InitGame blackjack) {
+    public ClientRunner(Socket s, Server parent) {
         this.s = s;
         this.parent = parent;
-        this.blackjack = blackjack;
         try {
             outputStream = new ObjectOutputStream(this.s.getOutputStream());
             inputStream = new ObjectInputStream(this.s.getInputStream());
@@ -26,9 +24,10 @@ public class ClientRunner implements Runnable {
     public void run() {
         // receive messages
         try {
-            Message message = null;
-            while((message = (Message)inputStream.readObject())!= null) {
-                this.parent.transmit(message);
+            Board board = null;
+            while((board = (Board)inputStream.readObject())!= null) {
+                System.out.println("Server listened about board");
+                this.parent.transmitBoardInfo(board);
             }
             inputStream.close();
         } catch(ClassNotFoundException e) {
@@ -38,9 +37,9 @@ public class ClientRunner implements Runnable {
         }
     }
     
-    public void transmitMessage(Message m) {
+    public void transmitPlayInfo(Board board) {
         try {
-            outputStream.writeObject(m);
+            outputStream.writeObject(board);
         }catch(IOException e) {
             e.printStackTrace();
         }

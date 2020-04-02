@@ -1,7 +1,8 @@
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Player {
+public abstract class Player implements Serializable {
 	
 	private String name;
 	private int playerNum;
@@ -37,7 +38,7 @@ public abstract class Player {
 	}
 
 	public ArrayList<Hand> getHands() {
-		return hands;
+		return this.hands;
 	}
 
 	public void setHands(ArrayList<Hand> hands) {

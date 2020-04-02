@@ -6,24 +6,14 @@ import java.util.ArrayList;
 public class Server implements Runnable{
     
     private ServerSocket server;
-    private InitGame blackjack;
     private ArrayList<ClientRunner> clients = new ArrayList<ClientRunner>();
     
     public Server() {
-    	this.blackjack = new InitGame();
         try {
             server = new ServerSocket(8765);
         } catch(IOException e) {
             e.printStackTrace();
         }
-    }
-    
-    public InitGame getBlackjack() {
-    	return this.blackjack;
-    }
-    
-    public int getNumberOfClients() {
-    	return this.clients.size();
     }
     
     public void run() {
@@ -32,7 +22,7 @@ public class Server implements Runnable{
             try {
                 clientSocket = server.accept();
                 System.out.println("New client connected");
-                ClientRunner client = new ClientRunner(clientSocket,this, this.blackjack);
+                ClientRunner client = new ClientRunner(clientSocket,this);
                 clients.add(client);
                 new Thread(client).start();
             }catch(IOException e) {
@@ -41,10 +31,10 @@ public class Server implements Runnable{
         }
     }
     
-    public void transmit(Message m) {
-        for(ClientRunner c: clients) {
-            if(c != null) {
-                c.transmitMessage(m);
+    public void transmitBoardInfo(Board board) {
+        for(ClientRunner client : this.clients) {
+            if(client != null) {
+                client.transmitPlayInfo(board);
             }
         }
     }

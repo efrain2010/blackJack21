@@ -31,9 +31,10 @@ public class ControlsMenuView extends JPanel {
 		JPanel topPanel = new JPanel(new FlowLayout());
 		topPanel.setOpaque(false);
 		
-		this.controlsPlayerStakes = new JLabel("Player Stakes: " + this.controllerObject.getBoard().getPlayers().get(0).getStakes());
+		System.out.println(this.controllerObject.getPlayer());
+		this.controlsPlayerStakes = new JLabel("Player Stakes: " + this.controllerObject.getPlayer().getStakes());
 		this.controlsPlayerStakes.setForeground(Color.WHITE);
-		this.controlsPlayerBet = new JLabel("Total Bet: " + this.controllerObject.getBoard().getPlayers().get(0).getActualBet());
+		this.controlsPlayerBet = new JLabel("Total Bet: " + this.controllerObject.getPlayer().getActualBet());
 		this.controlsPlayerBet.setForeground(Color.WHITE);
 		
 		topPanel.add(this.controlsPlayerStakes);
@@ -72,7 +73,7 @@ public class ControlsMenuView extends JPanel {
 	}
 	
 	public void updatePlayBet(int betQuantity, int totalBet) {
-		this.controlsPlayerStakes.setText("Player Stakes: " + this.controllerObject.getBoard().getPlayers().get(0).getStakes());
+		this.controlsPlayerStakes.setText("Player Stakes: " + this.controllerObject.getPlayer().getStakes());
 		this.controlsPlayerBet.setText("Total Bet: " + totalBet);
 	}
 

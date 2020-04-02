@@ -9,12 +9,10 @@ public class ReadWorker extends SwingWorker<Void,Void> {
 	private Socket socket = null;
     private ObjectInputStream inputStream = null;
     private Client parent;
-    private Controller controllerObject;
     
-    public ReadWorker(Socket s, Controller controllerObject) {
+    public ReadWorker(Socket s, Client parent) {
         this.socket = s;
-//        this.parent = parent;
-        this.controllerObject = controllerObject;
+        this.parent = parent;
         
         try {
             inputStream = new ObjectInputStream(this.socket.getInputStream());
@@ -25,11 +23,11 @@ public class ReadWorker extends SwingWorker<Void,Void> {
     
     public Void doInBackground() {
         System.out.println("Started read worker");
-        Message m = null;
+        Board board = null;
         try {
-            while((m = (Message)inputStream.readObject())!= null) {
-                System.out.println(m);
-                parent.display(m);
+            while((board = (Board)inputStream.readObject())!= null) {
+                System.out.println("Client listened about board");
+                parent.updateClients(board);
             }
         }catch(ClassNotFoundException e) {
             e.printStackTrace();

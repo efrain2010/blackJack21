@@ -1,33 +1,28 @@
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.Insets;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
 
 public class HandView extends JPanel {
 	
+	private BoardView parent;
+
 	private JLabel nameLabel;
 	private ArrayList<JLayeredPane> playerHandPanel = new ArrayList<JLayeredPane>();
 
-	public HandView(Player player) {
+	public HandView(BoardView parent) {
+		this.parent = parent;
 		
 		this.setOpaque(false);
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -36,7 +31,10 @@ public class HandView extends JPanel {
 		namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.Y_AXIS));
 		namePanel.setOpaque(false);
 		
-		this.nameLabel = new JLabel(player.getName() + " - " + player.getHands().get(0).getCardsPoints(player, true), SwingConstants.CENTER);
+		Player player = this.parent.controllerObject.getPlayer();
+		System.out.println(player);
+		// this.nameLabel = new JLabel(player.getName() + " - " + player.getHands().get(0).getCardsPoints(player, true), SwingConstants.CENTER);
+		this.nameLabel = new JLabel(player.getName(), SwingConstants.CENTER);
 		this.nameLabel.setForeground(Color.white);
 		this.nameLabel.setBackground(Color.decode("#353535"));
 		this.nameLabel.setFont(new Font("Courrier New", Font.BOLD, 16));

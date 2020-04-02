@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class BoardView extends JFrame {
     
-	private Controller controllerObject;
+	protected Controller controllerObject;
 	private Player player;
 	
 	private ControlsMenuView controls;
@@ -66,23 +66,28 @@ public class BoardView extends JFrame {
         topPanel.setLayout(new GridLayout(1, 1, 0, 0));
         topPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
         
-        this.dealerView = new HandView(this.controllerObject.getBoard().getDealer());
-        topPanel.add(this.dealerView);
-        
-        ArrayList<Player> players = this.controllerObject.getBoard().getPlayers();
 
+        // en este punto aún no existe el dealer, debe de haber una forma de pasar
+        // el dealer cuando el usuario se conecta
+        // this.dealerView = new HandView(this.controllerObject.getBoard().getDealer());
+        // topPanel.add(this.dealerView);
+        
+        // ArrayList<Player> players = this.controllerObject.getBoard().getPlayers();
+
+        System.out.println("Num. of players: " + this.controllerObject.getBoard().getPlayers().size());
         JPanel bottomPanel = new JPanel();
         bottomPanel.setOpaque(false);
-        bottomPanel.setLayout(new GridLayout(1, players.size(), 0, 0));
+        // bottomPanel.setLayout(new GridLayout(1, players.size(), 0, 0));
+        bottomPanel.setLayout(new GridLayout(1, 1, 0, 0));
         bottomPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
         
-        for(int i = 0; i < players.size(); i++) {
-        	Player player = players.get(i);
+        // for(int i = 0; i < players.size(); i++) {
+        	// Player player = players.get(i);
         	
-        	HandView pleayerView = new HandView(player);
+        	HandView pleayerView = new HandView(this);
         	bottomPanel.add(pleayerView);
         	this.playersView.add(pleayerView);
-        }
+        // }
         
         this.controls = new ControlsMenuView(this.controllerObject);
         

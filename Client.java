@@ -10,30 +10,26 @@ import java.net.Socket;
 public class Client extends JFrame {
 
     private Socket server = null;
-    private JTextArea textArea;
     private ObjectOutputStream outputStream;
-    private JTextField messageField;
-    private JButton sendButton;
     private Human player;
+    private Controller controllerObject;
     
     public Client() {
-
-    	this.player = new Human(BoardView.initWindow(), 1);
-    	Controller controllerObject = new Controller(this.player);
 
         connect();
 
         try {
-            outputStream = new ObjectOutputStream(server.getOutputStream());
+            outputStream = new ObjectOutputStream(this.server.getOutputStream());
         }catch(IOException e) {
             e.printStackTrace();
         }
-
-        ReadWorker rw = new ReadWorker(server, controllerObject);
+        
+        ReadWorker rw = new ReadWorker(this.server, this);
         rw.execute();
-        System.out.println("HERE");
+        
+        this.controllerObject = new Controller(new Model(), outputStream);
     }
-    
+
     private void connect() {
         try {
             server = new Socket("127.0.0.1",8765);
@@ -42,9 +38,9 @@ public class Client extends JFrame {
             e.printStackTrace();
         }
     }
-    
-    public void display(Message m) {
-        textArea.append(m.toString() + '\n');
+
+    public void updateClients(Board board) {
+        System.out.println("update clients");
     }
     
 //    public void actionPerformed(ActionEvent e) {

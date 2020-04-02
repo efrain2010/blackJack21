@@ -1,14 +1,15 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Board {
+public class Board implements Serializable {
 
 	private Deck deck;
-	private ArrayList<Player> players;
+	private ArrayList<Player> players = new ArrayList<Player>();
 	private Player dealer;
+	private Player player;
 	
 	public Board(Deck deck) {
 		this.deck = deck;
-		this.players = new ArrayList<Player>();
 	}
 	
 	public void initGame(int numOfPlayers) {
@@ -32,12 +33,24 @@ public class Board {
 		this.dealer = dealer;
 	}
 
+	public Player getPlayer() {
+		return this.player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+
 	public ArrayList<Player> getPlayers() {
 		return this.players;
 	}
 
 	public void setPlayers(ArrayList<Player> players) {
 		this.players = players;
+	}
+	
+	public void addPlayer(Player player) {
+		this.players.add(player);
 	}
 	
 	private void dealCards(int numOfPlayers) {
